@@ -23,7 +23,7 @@ jobs:
       - name: Build
         run: dotnet build "./ProductApp.Api/ProductApp.Api.csproj" --no-restore
       - name: Test
-        run: dotnet test "./ProductApp.Tests/ProductApp.Tests.csproj" --no-build
+        run: dotnet test "./ProductApp.Tests/ProductApp.Tests.csproj"
       
       - name: Build Docker Image
         run: docker build . -t almiranda86/product_app:v1
