@@ -21,7 +21,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore "./ProductApp.Api/ProductApp.Api.csproj"
       - name: Build
-        run: dotnet build "./ProductApp.Api.csproj" --no-restore
+        run: dotnet build --no-restore
       - name: Test
         run: dotnet test "./ProductApp.Tests.csproj" --no-build --verbosity normal
       
