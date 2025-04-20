@@ -1,0 +1,24 @@
+services:
+  productapp.api:
+    image: ${DOCKER_REGISTRY-}productappapi
+    build:
+      context: .
+      dockerfile: ProductApp.Api/Dockerfile
+
+  mongo:
+    image: mongo:latest
+    container_name: mongodb-productapp
+    command: mongod --auth --bind_ip_all
+    ports:
+        - "27017:27017"
+    volumes:
+        - mongodb-data:/data/db
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: MongoDB00
+        MONGO_INITDB_DATABASE: ProductsDB
+
+volumes:
+  mongodb-data:
+    driver: local

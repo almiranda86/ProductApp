@@ -1,0 +1,40 @@
+# This part creates a load balancer pod that receives traffic from
+# internet and load-balances to our pods
+apiVersion: v1
+kind: Service
+metadata:
+  name: productapp-service
+spec:
+  selector:
+    app: productapp     # This makes load balancer point to productapp deployment
+  ports:
+    - port: 80        
+      targetPort: 80  # The port our container(in pods) listens to
+  type: LoadBalancer
+---
+
+# This part creates a pod that runs our docker image
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productapp
+spec:
+  # we only want one replica of our container for now
+  replicas: 1  
+  selector:
+    matchLabels:
+      app: productapp
+  template:
+    metadata:
+      labels:
+        app: productapp
+    spec:
+      containers:
+        - name: productapp
+          image: nishants/productapp:v0.1   # Our docker image on docker hub
+          ports:
+            - containerPort: 80           # Port that our app listens to
+          env:
+            - name: PRODUCTAPP_MongoSettings__ConnectionString
+              value: mongodb://mongo-service:27017/dev # mongo-service that exposes mongo db to us
+          imagePullPolicy: Always
