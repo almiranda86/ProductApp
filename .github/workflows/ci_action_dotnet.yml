@@ -8,9 +8,9 @@ jobs:
   ci-job-build:
     runs-on: ubuntu-latest
     env:
-      DOCKER_REPOSITORY: product_app # name of Docker Hub ID
-      IMAGE_NAME: webapp
-      IMAGE_TAG: ${{ github.run_number }} # $GITHUB_RUN_NUMBER
+      DOCKER_REPOSITORY: almiranda86/product_app # name of Docker Hub ID
+      IMAGE_NAME: product_app
+      IMAGE_TAG: v1 # $GITHUB_RUN_NUMBER
 
     steps:
       - uses: actions/checkout@v4
