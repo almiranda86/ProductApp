@@ -12,10 +12,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["ProductApp.Api/ProductApp.Api.csproj", "ProductApp.Api/"]
-COPY ["ProductApp.Domain/ProductApp.Domain.csproj", "ProductApp.Domain/"]
-COPY ["ProductApp.MongoDB/ProductApp.MongoDB.csproj", "ProductApp.MongoDB/"]
-COPY ["ProductApp.Service/ProductApp.Service.csproj", "ProductApp.Service/"]
+COPY ["./ProductApp.Api/ProductApp.Api.csproj", "./ProductApp.Api/"]
+COPY ["./ProductApp.Domain/ProductApp.Domain.csproj", "./ProductApp.Domain/"]
+COPY ["./ProductApp.MongoDB/ProductApp.MongoDB.csproj", "./ProductApp.MongoDB/"]
+COPY ["./ProductApp.Service/ProductApp.Service.csproj", "./ProductApp.Service/"]
 RUN dotnet restore "./ProductApp.Api/ProductApp.Api.csproj"
 COPY . .
 WORKDIR "/src/ProductApp.Api"
