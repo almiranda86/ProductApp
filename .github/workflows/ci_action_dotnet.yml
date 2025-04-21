@@ -10,18 +10,18 @@ env:
     IMAGE_TAG: v1 # $GITHUB_RUN_NUMBER
 
 jobs:
-  # ci-job-setup:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Install Docker using Docker's official script
-  #       run: |
-  #         curl -fsSL https://get.docker.com -o get-docker.sh
-  #         sudo sh get-docker.sh
-  #     - name: Install Docker Compose
-  #       run: |
-  #         sudo curl -L "https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  #         sudo chmod +x /usr/local/bin/docker-compose
-  #         docker-compose --version
+  ci-job-setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Docker using Docker's official script
+        run: |
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sudo sh get-docker.sh
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          docker-compose --version
 
   ci-job-build:
     runs-on: ubuntu-latest
