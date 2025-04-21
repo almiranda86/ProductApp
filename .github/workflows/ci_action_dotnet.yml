@@ -37,7 +37,7 @@ jobs:
         run: docker push  ${{ secrets.DOCKER_HUB_USERNAME }}/product_app:v1
   cd-job-deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: ci-job-build
     steps:
       - name: Create the k8s-deployment for app
         run: kubectl apply -f ./K8S/app_deployment_manifest.yaml
