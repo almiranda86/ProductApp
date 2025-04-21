@@ -40,7 +40,7 @@ jobs:
         run: dotnet test "./ProductApp.Tests/ProductApp.Tests.csproj"
       
       - name: Build the docker-compose stack
-        run: docker compose build -f docker-compose.yml -d
+        run: docker-compose -f docker-compose.yml -d
 
       # - name: Build Docker Image
       #   run: docker build ./ -t  ${{ secrets.DOCKER_HUB_USERNAME }}/product-app:v1
