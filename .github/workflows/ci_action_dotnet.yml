@@ -28,7 +28,7 @@ jobs:
     needs: setup
     steps:
      - name: Build the docker-compose stack
-       run: docker-compose -f "docker-compose.yml" up -d --build
+       run: docker compose -f "docker-compose.yml" up -d --build
 
   ci-job-build:
     runs-on: ubuntu-latest
