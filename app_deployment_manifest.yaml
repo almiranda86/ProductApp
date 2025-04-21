@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: product-app-deployment
+  name: product_app-deployment
   annotations:
     kubernetes.io/change-cause: "Initial deployment for Asp.Net"
 spec: 
   replicas: 3
   selector:
     matchLabels:
-      app: product-app
+      app: product_app
   template:
     metadata:
-      name: product-app
+      name: product_app
       labels: 
         env: dev
-        app: product-app
-        app.kubernetes.io/name: product-app
+        app: product_app
+        app.kubernetes.io/name: product_app
     spec:
       containers:
-        - name: product-app
-          image: almiranda86/product-app:v1
+        - name: product_app
+          image: almiranda86/product_app:v1
           ports:
             - containerPort: 80
               name: http-web-api
@@ -39,12 +39,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: product-app-load-balancer-service
+  name: product_app-load-balancer-service
 spec:
   selector:
-    app.kubernetes.io/name: product-app
+    app.kubernetes.io/name: product_app
   ports:
-    - name: product-app-port
+    - name: product_app-port
       protocol: TCP
       port: 8080
       targetPort: 80
