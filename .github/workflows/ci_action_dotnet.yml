@@ -40,6 +40,6 @@ jobs:
     needs: ci-job-build
     steps:
       - name: Create the k8s-deployment for app
-        run: kubectl apply -f ./K8S/app_deployment_manifest.yaml
+        run: kubectl apply -f app_deployment_manifest.yaml
       - name: Create the k8s-deployment for mongo
-        run: kubectl apply -f ./K8S/mongodb_deployment_manifest.yaml 
+        run: kubectl apply -f mongodb_deployment_manifest.yaml 
