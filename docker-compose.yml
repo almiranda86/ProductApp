@@ -3,7 +3,7 @@ services:
     image: ${DOCKER_REGISTRY-}productappapi
     build:
       context: .
-      dockerfile: ProductApp.Api/Dockerfile
+      dockerfile: ./Dockerfile
 
   mongo:
     image: mongo:latest
