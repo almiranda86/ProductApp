@@ -1,7 +1,7 @@
 services:
   productapp.api:
     #image: ${DOCKER_REGISTRY-}productappapi
-    image: ${{ secrets.DOCKER_HUB_USERNAME }}/product_app:v1
+    image: ${{ secrets.DOCKER_HUB_USERNAME }}/product-app:v1
     build:
       context: .
       dockerfile: ./Dockerfile
