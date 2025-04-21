@@ -25,7 +25,6 @@ jobs:
 
   ci-job-build:
     runs-on: ubuntu-latest
-    needs: ci-job-setup
     steps:
       - uses: actions/checkout@v4
       - name: Setup .NET
