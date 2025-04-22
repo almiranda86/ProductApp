@@ -76,11 +76,11 @@ jobs:
         run: |
             kubectl apply --validate=false -f ./app_deployment_manifest.yaml
             kubectl run  product-app --image=docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/product-app:v1 --port=8080
-            sleep 20
+            sleep 60
             kubectl get all
             kubectl port-forward product-app 8080:8080 &>/dev/null &
-            sleep 5
-            kubectl port-forward product-app 8080:8080 &>/dev/null &
+            sleep 20
+            kubectl port-forward product-app 8081:8081 &>/dev/null &
       - run: |
           curl -i http://localhost:8080/
       # - name: Create the k8s-deployment for mongo
