@@ -27,6 +27,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
+     - uses: actions/checkout@v4
+     - name: Open Web Client Directory
+       run: |
+          ls -la
+          cd ./home/runner/work/ProductApp/ProductApp
+          ls -la
      - name: Build the docker-compose stack
        run: docker compose -f "docker-compose.yml" build
 
