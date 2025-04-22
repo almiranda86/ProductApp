@@ -22,7 +22,7 @@ spec:
           image: almiranda86/product-app:v1
           ports:
             - containerPort: 80
-              name: http-web-api
+              name: http-web-svc
           resources:
             requests:
               cpu: 100m
