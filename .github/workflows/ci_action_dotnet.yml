@@ -68,6 +68,10 @@ jobs:
     needs: build-publish-compose
     steps:
       - uses: actions/checkout@v4
+      - uses: actions-hub/kubectl@master
+        env:    
+            KUBE_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+            KUBE_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
       - name: Create the k8s-deployment for app
         run: kubectl apply --validate=false -f ./app_deployment_manifest.yaml
       - name: Create the k8s-deployment for mongo
