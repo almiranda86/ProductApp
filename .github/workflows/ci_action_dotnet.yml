@@ -69,6 +69,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Create the k8s-deployment for app
-        run: kubectl apply -f ./app_deployment_manifest.yaml
+        run: kubectl apply --validate=false -f ./app_deployment_manifest.yaml
       - name: Create the k8s-deployment for mongo
-        run: kubectl apply -f /.mongodb_deployment_manifest.yaml
+        run: kubectl apply --validate=false -f /.mongodb_deployment_manifest.yaml

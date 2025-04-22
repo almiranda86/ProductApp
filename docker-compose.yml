@@ -1,8 +1,6 @@
 services:
   productapp.api:
     image: almiranda86/product-app:v1
-    #image: ${DOCKER_REGISTRY-}productappapi
-    #image: ${{ secrets.DOCKER_HUB_USERNAME }}/product-app:v1
     build:
       context: .
       dockerfile: ./Dockerfile
